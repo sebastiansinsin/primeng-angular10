@@ -132,4 +132,85 @@
   </p-table>
 </div>
 </div>
+<div class="content">
+  <div class="card">
+    <h5>Quill Editor Custom</h5>
+    <p-editor #header_editor (onTextChange)="headerTextChangeHandler($event)">
+      <p-header>
+        <span class="ql-formats">
+          <button class="ql-bold" aria-label="Bold"></button>
+          <button class="ql-italic" aria-label="Italic"></button>
+          <button class="ql-underline" aria-label="Underline"></button>
+        </span>
+        <span class="ql-formats">
+          <button class="ql-list" value="ordered"></button>
+          <button class="ql-list" value="bullet"></button>
+        </span>
+        <span class="ql-formats">
+          <button (click)="addShortCode('[invoice_number]', header_editor)" style="width: auto;">
+            <i class="fa fa-plus"></i> invoice_number
+          </button>
+          <button (click)="addShortCode('[company_name]', header_editor)" style="width: auto;">
+            <i class="fa fa-plus"></i> company_name
+          </button>
+          <button (click)="addShortCode('[invoice_amount]', header_editor)" style="width: auto;">
+            <i class="fa fa-plus"></i> invoice_amount
+          </button>
+          <button (click)="addShortCode('[due_date]', header_editor)" style="width: auto;">
+            <i class="fa fa-plus"></i> due_date
+          </button>
+        </span>
+      </p-header>
+    </p-editor>
+    <div>
+      <p #header_preview></p>
+    </div>
+  </div>
+</div>
+<div class="content">
+  <div class="card">
+    <p-carousel [value]="products" [numVisible]="3" [numScroll]="3" [circular]="false"
+      [responsiveOptions]="responsiveOptions">
+      <ng-template pTemplate="header">
+        <h5>Carousel</h5>
+      </ng-template>
+      <ng-template let-product pTemplate="item">
+        <div class="product-item">
+          <div class="product-item-content">
+            <div>
+              <h4 class="p-mb-1">{{product.name}}</h4>
+              <h6 class="p-mt-0 p-mb-3">${{product.price}}</h6>
+              <span
+                [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+              <div class="car-buttons p-mt-5">
+                <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"></p-button>
+                <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star">
+                </p-button>
+                <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>
+<div class="content">
+  <div class="card">
+    <h5>Chart Line</h5>
+    <p-chart type="line" [data]="data_line" (onDataSelect)="selectData($event)"></p-chart>
+  </div>
+</div>
+<div class="content">
+  <div class="card">
+    <h5>Chart Doughnut</h5>
+    <p-chart type="doughnut" [data]="data_doughnut"></p-chart>
+  </div>
+</div>
+<div class="content">
+  <div class="card">
+    <h5>Chart pie</h5>
+    <p-chart type="pie" [data]="data_doughnut"></p-chart>
+  </div>
+</div>
 <router-outlet></router-outlet>

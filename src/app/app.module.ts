@@ -22,6 +22,8 @@ import { SliderModule } from 'primeng/slider';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { EditorModule } from 'primeng/editor';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CarouselModule } from 'primeng/carousel';
+import { ChartModule } from 'primeng/chart';
 @NgModule({
   declarations: [
     AppComponent
@@ -45,7 +47,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     DropdownModule,
     ButtonModule,
     EditorModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    CarouselModule,
+    ChartModule
   ],
   providers: [
     ProductService,
